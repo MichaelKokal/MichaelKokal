@@ -12,10 +12,4 @@ Currently building game and systems projects in C, C++, and Python<br>Developing
 ![](https://nirzak-streak-stats.vercel.app/?user=MichaelKokal&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=MichaelKokal&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=MichaelKokal&limit=5&theme=nightowl&combine_all_yearly_contributions=true)
-
----
-[![](https://visitcount.itsvg.in/api?id=MichaelKokal&icon=8&color=1)](https://visitcount.itsvg.in)
-
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
