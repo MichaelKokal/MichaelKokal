@@ -1,5 +1,5 @@
 # 💫 About Me:
-Currently building game and systems projects in C, C++, and Python<br>Developing real-world collaboration and leadership skills as a Guest Services Manager<br>Looking to secure a Software Engineering internship for 2026/2027<br>Future goal of developing platforms that make people's everyday lives easier
+Hi, I'm Michael Kokaly a Game & Systems Developer with a passion for building projects that solve real problems<br>Currently teaching myself web development to build websites for people and organizations<br>I have a deep interest in building software that simplifies everyday life for real people<br>I'm actively seeking Software Engineering internships where I can contribute, grow, and work toward developing platforms that put users first
 
 
 ## 🌐 Socials:
