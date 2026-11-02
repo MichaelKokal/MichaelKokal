@@ -1,5 +1,10 @@
 # 💫 About Me:
-Hi, I'm **Michael**, a CS student at the **University of Illinois Chicago** ('28) who builds full-stack apps from the database up. I like knowing what's under the hood, so I usually end up building the whole engine.
+I build full-stack apps from the database up. I like knowing what's under the hood, so I usually end up building the whole engine.
+
+- 🛠️ **What I build:** backend services, REST APIs, and the React frontends on top of them
+- 🧠 **Ask me about:** Java, Spring Boot, PostgreSQL, and why your query needs an index
+- 🚀 **How I ship:** tested and deployed through CI, on everything from Azure servers to Vercel
+- 🎯 **Open to:** backend and full-stack software engineering roles
 
 # 💻 Tech Stack:
 **Languages:** ![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=plastic&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=plastic&logo=javascript&logoColor=%23F7DF1E) ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=plastic&logo=openjdk&logoColor=white) ![Python](https://img.shields.io/badge/Python-3670A0.svg?style=plastic&logo=python&logoColor=ffdd54) ![C++](https://img.shields.io/badge/C%2B%2B-%2300599C.svg?style=plastic&logo=c%2B%2B&logoColor=white) ![C](https://img.shields.io/badge/C-%2300599C.svg?style=plastic&logo=c&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=plastic&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-%231572B6.svg?style=plastic&logo=css&logoColor=white)<br/>
