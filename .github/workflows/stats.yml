@@ -18,7 +18,7 @@ jobs:
           node-version: 20
       - run: node scripts/make-stats.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
       - name: Save cards
         run: |
           git config user.name "Michael Kokaly"
