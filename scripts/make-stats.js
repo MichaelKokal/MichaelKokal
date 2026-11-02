@@ -130,7 +130,8 @@ function languagesCard(repos) {
     })
     .join("");
 
-  const height = 105 + Math.ceil(top.length / 2) * 25;
+  // Same height as the stats card so the two line up side by side
+  const height = Math.max(200, 105 + Math.ceil(top.length / 2) * 25);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="${height}" viewBox="0 0 400 ${height}">
   <style>
     .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.title}; }

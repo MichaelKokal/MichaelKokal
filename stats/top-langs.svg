@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="180" viewBox="0 0 400 180">
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
   <style>
     .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: #ffffff; }
     .lang { font: 400 12px 'Segoe UI', Ubuntu, sans-serif; fill: #c9d1d9; }
   </style>
-  <rect x="0.5" y="0.5" rx="4.5" width="399" height="179" fill="#151515" stroke="#e4e2e2"/>
+  <rect x="0.5" y="0.5" rx="4.5" width="399" height="199" fill="#151515" stroke="#e4e2e2"/>
   <text x="25" y="35" class="title">Most Used Languages</text>
   <clipPath id="round"><rect x="0" y="0" width="350" height="8" rx="5"/></clipPath>
   <g transform="translate(25, 55)" clip-path="url(#round)"><rect x="0" y="0" width="184.5031431045044" height="8" fill="#3178c6"/><rect x="184.5031431045044" y="0" width="56.315809285247425" height="8" fill="#663399"/><rect x="240.81895238975181" y="0" width="39.02822121159236" height="8" fill="#f34b7d"/><rect x="279.8471736013442" y="0" width="35.06144196121508" height="8" fill="#b07219"/><rect x="314.90861556255925" y="0" width="21.337008558415206" height="8" fill="#e34c26"/><rect x="336.24562412097447" y="0" width="13.75437587902555" height="8" fill="#555555"/></g>
