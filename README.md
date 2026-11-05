@@ -2,7 +2,7 @@
 
 <img src="./info-card.svg" width="860" alt="Now: SWE Intern at Mylon Education. Stack: Java, Spring Boot, PostgreSQL, React, TypeScript, Python, Go." />
 
-<br><br>
+<br>
 
 <table>
   <tr>
