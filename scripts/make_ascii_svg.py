@@ -36,10 +36,37 @@ EDGE_CUTOFF = 0.1    # share of a character cell an edge must cover to be drawn
 CROP_WIDTH = 0.74    # share of the body width to keep
 CROP_ASPECT = 1.12   # crop height / width
 
+# The face gets its own, finer treatment so small features like the eyes survive.
+# FACE_BOX is (left, top, right, bottom) in pixels of portrait/source.png;
+# update it if you swap the photo (or set it to None to skip this step).
+FACE_BOX = (128, 86, 188, 162)
+FACE_SHARPEN = 1.0   # extra local contrast inside the face
+FACE_TONE = 0.45     # shading weight inside the face (vs TONE elsewhere); low keeps skin clean
+FACE_VALLEY_SIZE = 3.0   # how wide an area a feature is compared against, in photo pixels
+FACE_VALLEY_MIN = 10     # how much darker than its surroundings a spot must be to be drawn
+FACE_LINE = 1.0          # how strongly those features are drawn (0..1 on the ramp)
+
+
+def face_weight(shape):
+    """1.0 inside FACE_BOX, fading to 0 just outside it, so the two treatments blend smoothly."""
+    weight = np.zeros(shape, np.float32)
+    if FACE_BOX:
+        x0, y0, x1, y1 = FACE_BOX
+        weight[y0:y1, x0:x1] = 1.0
+        k = max(3, (x1 - x0) // 6) | 1
+        weight = cv2.GaussianBlur(weight, (k, k), 0)
+    return weight
+
 
 def to_rows(img):
     la = np.array(img.convert("LA"))
     gray8, mask8 = la[..., 0], la[..., 1]
+    face = face_weight(gray8.shape)
+
+    # Sharpen the face so eyes, brows and the smile line stand out from the skin.
+    g = gray8.astype(np.float32)
+    sharp = np.clip(g + FACE_SHARPEN * (g - cv2.GaussianBlur(g, (0, 0), 1.6)), 0, 255)
+    gray8 = (g * (1 - face) + sharp * face).astype(np.uint8)
 
     # Crop to head and shoulders, centered on the head.
     ys, xs = np.where(mask8 > 127)
@@ -50,13 +77,19 @@ def to_rows(img):
     left = max(0, int(head_x - cw / 2))
     crop = (slice(top, top + int(cw * CROP_ASPECT)), slice(left, left + int(cw)))
     gray8, mask8 = np.ascontiguousarray(gray8[crop]), np.ascontiguousarray(mask8[crop])
+    face = np.ascontiguousarray(face[crop])
 
-    # Edges of facial features plus the silhouette. The smoothing flattens fine texture
-    # (sweater knit, hair strands) first, so only real outlines survive.
+    # Edges of facial features plus the silhouette. The heavy smoothing flattens fine texture
+    # (sweater knit, hair strands) so only real outlines survive; inside the face a much
+    # lighter smoothing keeps small features like the eyes.
     big = cv2.resize(gray8, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
     smooth = cv2.GaussianBlur(cv2.bilateralFilter(big, 9, 50, 9), (0, 0), EDGE_BLUR)
     edges = cv2.Canny(smooth, *EDGE_THRESHOLDS)
     edges |= cv2.Canny(cv2.resize(mask8, big.shape[::-1]), 50, 150)
+    # Inside the face, draw "valleys": spots clearly darker than their surroundings, which is
+    # what eyes, brows, nostrils and the smile line are (skin texture is too faint to count).
+    gf = gray8.astype(np.float32)
+    valley = np.clip((cv2.GaussianBlur(gf, (0, 0), FACE_VALLEY_SIZE) - gf - FACE_VALLEY_MIN) / 40, 0, 1) * face
 
     h, w = gray8.shape
     rows = round(COLS * (h / w) * (CHAR_W / LINE_H))
@@ -64,11 +97,15 @@ def to_rows(img):
     v = cv2.resize(gray8, size, interpolation=cv2.INTER_AREA) / 255.0
     subject = cv2.resize(mask8, size, interpolation=cv2.INTER_AREA) > 127
     e = cv2.resize(edges, size, interpolation=cv2.INTER_AREA) / 255.0
+    f = cv2.resize(face, size, interpolation=cv2.INTER_AREA)
+    lines = cv2.resize(valley, size, interpolation=cv2.INTER_AREA)
 
     # Stretch the subject's tones to the full range, then turn brightness into "ink".
     lo, hi = np.percentile(v[subject], 2), np.percentile(v[subject], 98)
-    ink = TONE * (1 - np.clip((v - lo) / max(hi - lo, 1e-3), 0, 1)) ** GAMMA
+    tone = TONE * (1 - f) + FACE_TONE * f
+    ink = tone * (1 - np.clip((v - lo) / max(hi - lo, 1e-3), 0, 1)) ** GAMMA
     ink = np.where(e > EDGE_CUTOFF, np.maximum(ink, EDGE), ink)
+    ink = np.maximum(ink, lines * FACE_LINE)
 
     idx = np.where(subject, np.round(ink * (len(RAMP) - 1)).astype(int), 0)
     return ["".join(RAMP[i] for i in line).rstrip() for line in idx]
