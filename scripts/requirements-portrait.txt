@@ -1,0 +1,7 @@
+# Only needed locally, when the portrait photo changes:
+#   python scripts/prep_photo.py portrait/source.png
+#   python scripts/make_ascii_svg.py
+pillow
+numpy
+opencv-python-headless
+rembg[cpu]

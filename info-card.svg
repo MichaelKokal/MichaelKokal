@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="474" viewBox="0 0 490 474" role="img" aria-label="michael@github: ~">
+<title>michael@github: ~</title>
+<style>
+text { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+
+.l { opacity: 0; animation: print .35s ease-out forwards; }
+@keyframes print { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0); } }
+
+</style>
+<rect x="0.5" y="0.5" width="489" height="473" rx="10" fill="#0d1117" stroke="#30363d"/>
+<path d="M0.5 30 V10.5 A10 10 0 0 1 10.5 0.5 H479.5 A10 10 0 0 1 489.5 10.5 V30 Z" fill="#161b22"/>
+<line x1="0.5" y1="30" x2="489.5" y2="30" stroke="#30363d"/>
+<circle cx="18" cy="15.0" r="5.5" fill="#ff5f56"/>
+<circle cx="36" cy="15.0" r="5.5" fill="#ffbd2e"/>
+<circle cx="54" cy="15.0" r="5.5" fill="#27c93f"/>
+<text x="245.0" y="19.0" text-anchor="middle" font-size="12" fill="#8b949e">michael@github: ~</text>
+<g class="l" style="animation-delay:0.35s"><text x="24" y="64" font-size="12.5"><tspan fill="#39d353">$</tspan> <tspan fill="#c9d1d9">neofetch</tspan></text></g>
+<g class="l" style="animation-delay:0.46s"><text x="24" y="88.5" font-size="15" font-weight="bold"><tspan fill="#39d353">michael</tspan><tspan fill="#c9d1d9">@</tspan><tspan fill="#39d353">github</tspan></text></g>
+<g class="l" style="animation-delay:0.57s"><rect x="24" y="98.5" width="442" height="1" fill="#30363d"/></g>
+<g class="l" style="animation-delay:0.68s"><text y="119.0" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Now</tspan><tspan x="116" fill="#c9d1d9">SWE Intern @ Mylon Education</tspan></text></g>
+<g class="l" style="animation-delay:0.79s"><text y="137.5" font-size="12.5" xml:space="preserve"><tspan x="116" fill="#c9d1d9">AI policy assistant · FastAPI · pgvector</tspan></text></g>
+<g class="l" style="animation-delay:0.90s"><text y="156.0" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Prev</tspan><tspan x="116" fill="#c9d1d9">Energy Systems Intern @ SYSERCO</tspan></text></g>
+<g class="l" style="animation-delay:1.01s"><text y="174.5" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">School</tspan><tspan x="116" fill="#c9d1d9">UIC · B.S. Computer Science · Honors</tspan></text></g>
+<g class="l" style="animation-delay:1.12s"><text y="203.2" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Stack</tspan><tspan x="116" fill="#c9d1d9">Java · Spring Boot · PostgreSQL</tspan></text></g>
+<g class="l" style="animation-delay:1.23s"><text y="221.7" font-size="12.5" xml:space="preserve"><tspan x="116" fill="#c9d1d9">React · TypeScript · Python · Go</tspan></text></g>
+<g class="l" style="animation-delay:1.34s"><text y="240.2" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Ships on</tspan><tspan x="116" fill="#c9d1d9">GitHub Actions · Azure · Vercel</tspan></text></g>
+<g class="l" style="animation-delay:1.45s"><text y="268.9" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Highlights</tspan><tspan x="116" fill="#c9d1d9"><tspan fill="#ffa657">›</tspan> Chicago Sky Tracker</tspan></text></g>
+<g class="l" style="animation-delay:1.56s"><text y="287.4" font-size="12.5" xml:space="preserve"><tspan x="116" fill="#c9d1d9">  live flights, 260K+ positions a day</tspan></text></g>
+<g class="l" style="animation-delay:1.67s"><text y="305.9" font-size="12.5" xml:space="preserve"><tspan x="116" fill="#c9d1d9"><tspan fill="#ffa657">›</tspan> Recall: a Redis-compatible server in Go</tspan></text></g>
+<g class="l" style="animation-delay:1.78s"><text y="324.4" font-size="12.5" xml:space="preserve"><tspan x="116" fill="#c9d1d9"><tspan fill="#ffa657">›</tspan> Digital Footprint: 3D travel globe</tspan></text></g>
+<g class="l" style="animation-delay:1.89s"><text y="353.0" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Open to</tspan><tspan x="116" fill="#c9d1d9">backend &amp; full-stack SWE roles</tspan></text></g>
+<g class="l" style="animation-delay:2.00s"><text y="371.5" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Speaks</tspan><tspan x="116" fill="#c9d1d9">English · Arabic · Spanish</tspan></text></g>
+<g class="l" style="animation-delay:2.11s"><text y="390.0" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Off hours</tspan><tspan x="116" fill="#c9d1d9">dabke · piano · chess · ping pong</tspan></text></g>
+<g class="l" style="animation-delay:2.22s"><text y="408.5" font-size="12.5" xml:space="preserve"><tspan x="24" fill="#58a6ff" font-weight="bold">Web</tspan><tspan x="116" fill="#c9d1d9">portfolio.michaelkokaly.com</tspan></text></g>
+<g class="l" style="animation-delay:2.33s"><rect x="24" y="435.0" width="22" height="12" rx="2" fill="#484f58"/><rect x="50" y="435.0" width="22" height="12" rx="2" fill="#ff7b72"/><rect x="76" y="435.0" width="22" height="12" rx="2" fill="#39d353"/><rect x="102" y="435.0" width="22" height="12" rx="2" fill="#e3b341"/><rect x="128" y="435.0" width="22" height="12" rx="2" fill="#58a6ff"/><rect x="154" y="435.0" width="22" height="12" rx="2" fill="#d2a8ff"/><rect x="180" y="435.0" width="22" height="12" rx="2" fill="#39c5cf"/><rect x="206" y="435.0" width="22" height="12" rx="2" fill="#c9d1d9"/></g>
+</svg>
