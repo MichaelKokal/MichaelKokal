@@ -5,15 +5,20 @@
 
 <br><br>
 
-<h3><code>michael@github ~ $ whoami</code></h3>
+<h3><code>michael@github ~ $ ./whoami.sh</code></h3>
 <table>
   <tr>
     <td valign="top"><img src="./ascii-portrait.svg" width="370" alt="ASCII art portrait of Michael Kokaly" /></td>
-    <td valign="top"><img src="./info-card.svg" width="490" alt="Now: SWE Intern at Mylon Education. Stack: Java, Spring Boot, PostgreSQL, React, TypeScript, Python, Go." /></td>
+    <td valign="top"><img src="./stats-panel.svg" width="490" alt="Contribution stats: streaks, totals, and contributions per month" /></td>
   </tr>
 </table>
 
 <br>
+
+<h3><code>michael@github ~ $ neofetch</code></h3>
+<img src="./info-card.svg" width="860" alt="Now: SWE Intern at Mylon Education. Stack: Java, Spring Boot, PostgreSQL, React, TypeScript, Python, Go." />
+
+<br><br>
 
 <h3><code>michael@github ~ $ ls ~/stack</code></h3>
 

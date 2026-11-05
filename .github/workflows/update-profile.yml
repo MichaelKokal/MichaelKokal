@@ -35,12 +35,13 @@ jobs:
           pip install -r scripts/requirements.txt
           python scripts/fetch_contributions.py
           python scripts/render_heatmap_svg.py
+          python scripts/render_stats_svg.py
 
       # Commits as the Actions bot so the daily refresh doesn't add to my own contribution graph.
       - name: Save changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add stats data/contributions.json contrib-heatmap.svg
+          git add stats data/contributions.json contrib-heatmap.svg stats-panel.svg
           git diff --cached --quiet || git commit -m "Update stats and contribution graph"
           git push

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="440" viewBox="0 0 490 440" role="img" aria-label="Contribution stats">
+<title>Contribution stats</title>
+<style>
+text { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+
+.t { opacity: 0; animation: rise .45s ease-out forwards; }
+.b { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); animation: grow .6s cubic-bezier(.2,.7,.3,1) forwards; }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes grow { to { transform: scaleY(1); } }
+
+</style>
+<rect x="0.5" y="0.5" width="489" height="439" rx="8" fill="#0d1117" stroke="#30363d"/>
+<text x="14" y="17" font-size="10" fill="#6e7681" text-anchor="start">stats.json</text><text x="476" y="17" font-size="10" fill="#6e7681" text-anchor="end">last 12 months</text><text x="14" y="430" font-size="10" fill="#6e7681" text-anchor="start">updated 2026-11-05</text>
+<g class="t" style="animation-delay:0.25s"><rect x="16.0" y="32" width="224.0" height="58" rx="6" fill="#161b22"/><text x="30.0" y="51" font-size="10" fill="#8b949e">current streak</text><text x="30.0" y="77" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#39d353">6</tspan><tspan font-size="11" fill="#8b949e"> days</tspan></text></g>
+<g class="t" style="animation-delay:0.35s"><rect x="250.0" y="32" width="224.0" height="58" rx="6" fill="#161b22"/><text x="264.0" y="51" font-size="10" fill="#8b949e">longest streak</text><text x="264.0" y="77" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">6</tspan><tspan font-size="11" fill="#8b949e"> days</tspan></text></g>
+<g class="t" style="animation-delay:0.45s"><rect x="16.0" y="100" width="224.0" height="58" rx="6" fill="#161b22"/><text x="30.0" y="119" font-size="10" fill="#8b949e">contributions</text><text x="30.0" y="145" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">159</tspan><tspan font-size="11" fill="#8b949e"> last year</tspan></text></g>
+<g class="t" style="animation-delay:0.55s"><rect x="250.0" y="100" width="224.0" height="58" rx="6" fill="#161b22"/><text x="264.0" y="119" font-size="10" fill="#8b949e">active days</text><text x="264.0" y="145" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">15</tspan><tspan font-size="11" fill="#8b949e"> of 365</tspan></text></g>
+<g class="t" style="animation-delay:0.65s"><rect x="16.0" y="168" width="224.0" height="58" rx="6" fill="#161b22"/><text x="30.0" y="187" font-size="10" fill="#8b949e">best day</text><text x="30.0" y="213" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">23</tspan><tspan font-size="11" fill="#8b949e"> Nov 1</tspan></text></g>
+<g class="t" style="animation-delay:0.75s"><rect x="250.0" y="168" width="224.0" height="58" rx="6" fill="#161b22"/><text x="264.0" y="187" font-size="10" fill="#8b949e">per active day</text><text x="264.0" y="213" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">10.6</tspan><tspan font-size="11" fill="#8b949e"> avg</tspan></text></g>
+<text x="16" y="250" font-size="10" fill="#8b949e">contributions per month</text>
+<rect class="b" style="animation-delay:0.90s" x="22.7" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in November 2025</title></rect>
+<text x="33.6" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Nov</text>
+<rect class="b" style="animation-delay:0.96s" x="57.9" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in December 2025</title></rect>
+<text x="68.8" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Dec</text>
+<rect class="b" style="animation-delay:1.02s" x="93.2" y="398.0" width="21.8" height="2.0" rx="2" fill="#26a641"><title>1 contributions in January 2026</title></rect>
+<text x="104.1" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Jan</text>
+<rect class="b" style="animation-delay:1.08s" x="128.4" y="356.8" width="21.8" height="43.2" rx="2" fill="#26a641"><title>23 contributions in February 2026</title></rect>
+<text x="139.3" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Feb</text>
+<rect class="b" style="animation-delay:1.14s" x="163.6" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in March 2026</title></rect>
+<text x="174.5" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Mar</text>
+<rect class="b" style="animation-delay:1.20s" x="198.8" y="392.5" width="21.8" height="7.5" rx="2" fill="#26a641"><title>4 contributions in April 2026</title></rect>
+<text x="209.8" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Apr</text>
+<rect class="b" style="animation-delay:1.26s" x="234.1" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in May 2026</title></rect>
+<text x="245.0" y="414" font-size="9" fill="#8b949e" text-anchor="middle">May</text>
+<rect class="b" style="animation-delay:1.32s" x="269.3" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in June 2026</title></rect>
+<text x="280.2" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Jun</text>
+<rect class="b" style="animation-delay:1.38s" x="304.5" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in July 2026</title></rect>
+<text x="315.5" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Jul</text>
+<rect class="b" style="animation-delay:1.44s" x="339.8" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in August 2026</title></rect>
+<text x="350.7" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Aug</text>
+<rect class="b" style="animation-delay:1.50s" x="375.0" y="398.0" width="21.8" height="2.0" rx="2" fill="#21262d"><title>0 contributions in September 2026</title></rect>
+<text x="385.9" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Sep</text>
+<rect class="b" style="animation-delay:1.56s" x="410.2" y="277.9" width="21.8" height="122.1" rx="2" fill="#26a641"><title>65 contributions in October 2026</title></rect>
+<text x="421.2" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Oct</text>
+<rect class="b" style="animation-delay:1.62s" x="445.5" y="276.0" width="21.8" height="124.0" rx="2" fill="#39d353"><title>66 contributions in November 2026</title></rect>
+<text x="456.4" y="414" font-size="9" fill="#8b949e" text-anchor="middle">Nov</text>
+<text class="t" style="animation-delay:2.02s" x="456.4" y="270.0" font-size="10" font-weight="bold" fill="#39d353" text-anchor="middle">66</text>
+</svg>
