@@ -62,6 +62,19 @@ function escape(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+// Lines fade in and slide from the left one after another, like the neofetch card.
+// The animated <g> wraps the positioned one, because a CSS transform would otherwise
+// replace the element's own transform attribute.
+const ANIMATION = `
+    .l { opacity: 0; animation: print .35s ease-out forwards; }
+    .grow { transform-box: fill-box; transform-origin: 0 50%; transform: scaleX(0); animation: grow .7s cubic-bezier(.2,.7,.3,1) forwards; }
+    @keyframes print { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes grow { to { transform: scaleX(1); } }`;
+
+function line(order, start, inner, cls = "l") {
+  return `<g class="${cls}" style="animation-delay:${(start + order * 0.1).toFixed(2)}s">${inner}</g>`;
+}
+
 function statsCard(user, repos) {
   const stars = repos.reduce((sum, r) => sum + r.stargazerCount, 0);
   const rows = [
@@ -75,21 +88,21 @@ function statsCard(user, repos) {
   const lines = rows
     .map(
       ([label, value], i) => `
-    <g transform="translate(25, ${70 + i * 25})">
+    ${line(i + 1, 0.3, `<g transform="translate(25, ${70 + i * 25})">
       <circle cx="6" cy="-5" r="4" fill="${colors.icon}"/>
       <text x="20" y="0" class="label">${escape(label)}:</text>
       <text x="240" y="0" class="value">${value}</text>
-    </g>`
+    </g>`)}`
     )
     .join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
   <style>
     .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.title}; }
     .label { font: 600 14px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.text}; }
-    .value { font: 700 14px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.text}; }
+    .value { font: 700 14px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.text}; }${ANIMATION}
   </style>
   <rect x="0.5" y="0.5" rx="4.5" width="399" height="199" fill="${colors.bg}" stroke="${colors.border}"/>
-  <text x="25" y="35" class="title">${escape(name)}'s GitHub Stats</text>${lines}
+  ${line(0, 0.3, `<text x="25" y="35" class="title">${escape(name)}'s GitHub Stats</text>`)}${lines}
 </svg>
 `;
 }
@@ -123,10 +136,10 @@ function languagesCard(repos) {
       const row = Math.floor(i / 2);
       const pct = ((l.size / sum) * 100).toFixed(2);
       return `
-    <g transform="translate(${col * 175}, ${row * 25})">
+    ${line(i, 1.1, `<g transform="translate(${col * 175}, ${row * 25})">
       <circle cx="5" cy="6" r="5" fill="${l.color}"/>
       <text x="15" y="10" class="lang">${escape(name)} ${pct}%</text>
-    </g>`;
+    </g>`)}`;
     })
     .join("");
 
@@ -135,12 +148,12 @@ function languagesCard(repos) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="${height}" viewBox="0 0 400 ${height}">
   <style>
     .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.title}; }
-    .lang { font: 400 12px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.text}; }
+    .lang { font: 400 12px 'Segoe UI', Ubuntu, sans-serif; fill: ${colors.text}; }${ANIMATION}
   </style>
   <rect x="0.5" y="0.5" rx="4.5" width="399" height="${height - 1}" fill="${colors.bg}" stroke="${colors.border}"/>
-  <text x="25" y="35" class="title">Most Used Languages</text>
+  ${line(0, 0.7, `<text x="25" y="35" class="title">Most Used Languages</text>`)}
   <clipPath id="round"><rect x="0" y="0" width="350" height="8" rx="5"/></clipPath>
-  <g transform="translate(25, 55)" clip-path="url(#round)">${bar}</g>
+  <g transform="translate(25, 55)" clip-path="url(#round)">${line(0, 0.85, bar, "grow")}</g>
   <g transform="translate(25, 80)">${legend}
   </g>
 </svg>

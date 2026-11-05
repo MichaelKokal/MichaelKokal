@@ -2,35 +2,39 @@
   <style>
     .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: #ffffff; }
     .lang { font: 400 12px 'Segoe UI', Ubuntu, sans-serif; fill: #c9d1d9; }
+    .l { opacity: 0; animation: print .35s ease-out forwards; }
+    .grow { transform-box: fill-box; transform-origin: 0 50%; transform: scaleX(0); animation: grow .7s cubic-bezier(.2,.7,.3,1) forwards; }
+    @keyframes print { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes grow { to { transform: scaleX(1); } }
   </style>
   <rect x="0.5" y="0.5" rx="4.5" width="399" height="199" fill="#151515" stroke="#e4e2e2"/>
-  <text x="25" y="35" class="title">Most Used Languages</text>
+  <g class="l" style="animation-delay:0.70s"><text x="25" y="35" class="title">Most Used Languages</text></g>
   <clipPath id="round"><rect x="0" y="0" width="350" height="8" rx="5"/></clipPath>
-  <g transform="translate(25, 55)" clip-path="url(#round)"><rect x="0" y="0" width="141.35477687054157" height="8" fill="#3178c6"/><rect x="141.35477687054157" y="0" width="62.974540488932156" height="8" fill="#e34c26"/><rect x="204.32931735947372" y="0" width="44.716302678003686" height="8" fill="#663399"/><rect x="249.04562003747742" y="0" width="38.55559994822939" height="8" fill="#00ADD8"/><rect x="287.6012199857068" y="0" width="34.81217209601573" height="8" fill="#f1e05a"/><rect x="322.4133920817225" y="0" width="27.586607918277466" height="8" fill="#f34b7d"/></g>
+  <g transform="translate(25, 55)" clip-path="url(#round)"><g class="grow" style="animation-delay:0.85s"><rect x="0" y="0" width="141.35477687054157" height="8" fill="#3178c6"/><rect x="141.35477687054157" y="0" width="62.974540488932156" height="8" fill="#e34c26"/><rect x="204.32931735947372" y="0" width="44.716302678003686" height="8" fill="#663399"/><rect x="249.04562003747742" y="0" width="38.55559994822939" height="8" fill="#00ADD8"/><rect x="287.6012199857068" y="0" width="34.81217209601573" height="8" fill="#f1e05a"/><rect x="322.4133920817225" y="0" width="27.586607918277466" height="8" fill="#f34b7d"/></g></g>
   <g transform="translate(25, 80)">
-    <g transform="translate(0, 0)">
+    <g class="l" style="animation-delay:1.10s"><g transform="translate(0, 0)">
       <circle cx="5" cy="6" r="5" fill="#3178c6"/>
       <text x="15" y="10" class="lang">TypeScript 40.39%</text>
-    </g>
-    <g transform="translate(175, 0)">
+    </g></g>
+    <g class="l" style="animation-delay:1.20s"><g transform="translate(175, 0)">
       <circle cx="5" cy="6" r="5" fill="#e34c26"/>
       <text x="15" y="10" class="lang">HTML 17.99%</text>
-    </g>
-    <g transform="translate(0, 25)">
+    </g></g>
+    <g class="l" style="animation-delay:1.30s"><g transform="translate(0, 25)">
       <circle cx="5" cy="6" r="5" fill="#663399"/>
       <text x="15" y="10" class="lang">CSS 12.78%</text>
-    </g>
-    <g transform="translate(175, 25)">
+    </g></g>
+    <g class="l" style="animation-delay:1.40s"><g transform="translate(175, 25)">
       <circle cx="5" cy="6" r="5" fill="#00ADD8"/>
       <text x="15" y="10" class="lang">Go 11.02%</text>
-    </g>
-    <g transform="translate(0, 50)">
+    </g></g>
+    <g class="l" style="animation-delay:1.50s"><g transform="translate(0, 50)">
       <circle cx="5" cy="6" r="5" fill="#f1e05a"/>
       <text x="15" y="10" class="lang">JavaScript 9.95%</text>
-    </g>
-    <g transform="translate(175, 50)">
+    </g></g>
+    <g class="l" style="animation-delay:1.60s"><g transform="translate(175, 50)">
       <circle cx="5" cy="6" r="5" fill="#f34b7d"/>
       <text x="15" y="10" class="lang">C++ 7.88%</text>
-    </g>
+    </g></g>
   </g>
 </svg>
