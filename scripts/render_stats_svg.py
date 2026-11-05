@@ -1,11 +1,10 @@
 """Draw contribution stats (big-number tiles plus a monthly bar chart) as stats-panel.svg.
 
-Reads data/contributions.json, so run fetch_contributions.py first. The panel's height
-matches ascii-portrait.svg so the two sit side by side as one row in the README.
+Reads data/contributions.json, so run fetch_contributions.py first. Its size matches the
+two GitHub stats cards stacked beside it in the README (each shown 350x175).
 """
 
 import json
-import re
 from datetime import date
 from pathlib import Path
 
@@ -13,26 +12,21 @@ from svg_common import BRIGHT, GREEN, LABEL_H, MUTED, STATIC, esc, panel
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "contributions.json"
-PORTRAIT = ROOT / "ascii-portrait.svg"
 OUT = ROOT / "stats-panel.svg"
 
-WIDTH = 490
+WIDTH = 450
+HEIGHT = 368
 PAD = 16
 GAP = 10
-TILE_H = 58
+TILE_H = 50
 BAR = "#26a641"
 BAR_EMPTY = "#21262d"
 TILE_BG = "#161b22"
 
 
-def portrait_height():
-    m = PORTRAIT.exists() and re.search(r'height="(\d+)"', PORTRAIT.read_text(encoding="utf-8"))
-    return int(m.group(1)) if m else 440
-
-
 def main():
     data = json.loads(DATA.read_text(encoding="utf-8"))
-    height = portrait_height()
+    height = HEIGHT
     best = data["best_day"]
     best_day = date.fromisoformat(best["date"])
     per_day = data["total"] / data["active_days"] if data["active_days"] else 0
@@ -54,18 +48,18 @@ def main():
         return "" if STATIC else f' style="animation-delay:{delay:.2f}s"'
 
     tile_w = (WIDTH - 2 * PAD - GAP) / 2
-    top = LABEL_H + 6
+    top = LABEL_H + 4
     for i, (label, value, unit) in enumerate(tiles):
         col, row = i % 2, i // 2
         x = PAD + col * (tile_w + GAP)
-        y = top + row * (TILE_H + GAP)
+        y = top + row * (TILE_H + 8)
         color = GREEN if i == 0 else BRIGHT
         value = esc(value)
         parts.append(
             f'<g class="t"{anim(0.25 + i * 0.1)}>'
             f'<rect x="{x:.1f}" y="{y}" width="{tile_w:.1f}" height="{TILE_H}" rx="6" fill="{TILE_BG}"/>'
-            f'<text x="{x + 14:.1f}" y="{y + 19}" font-size="10" fill="{MUTED}">{esc(label)}</text>'
-            f'<text x="{x + 14:.1f}" y="{y + 45}" xml:space="preserve">'
+            f'<text x="{x + 14:.1f}" y="{y + 17}" font-size="10" fill="{MUTED}">{esc(label)}</text>'
+            f'<text x="{x + 14:.1f}" y="{y + 40}" xml:space="preserve">'
             f'<tspan font-size="22" font-weight="bold" fill="{color}">{value}</tspan>'
             f'<tspan font-size="11" fill="{MUTED}"> {esc(unit)}</tspan></text></g>'
         )
@@ -73,10 +67,10 @@ def main():
 
     # Monthly bar chart under the tiles.
     months = list(data["monthly"].items())[-13:]
-    chart_top = top + 3 * (TILE_H + GAP) + 14
+    chart_top = top + 3 * (TILE_H + 8) + 12
     parts.append(f'<text x="{PAD}" y="{chart_top}" font-size="10" fill="{MUTED}">contributions per month</text>')
     base = height - 40
-    bar_top = chart_top + 26
+    bar_top = chart_top + 22
     span = base - bar_top
     pitch = (WIDTH - 2 * PAD) / len(months)
     bar_w = pitch * 0.62
