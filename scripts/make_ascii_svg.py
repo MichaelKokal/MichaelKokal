@@ -47,6 +47,96 @@ FACE_VALLEY_MIN = 10     # how much darker than its surroundings a spot must be 
 FACE_LINE = 1.0          # how strongly those features are drawn (0..1 on the ramp)
 
 
+# Hand-drawn face structure, laid over the photo before and after it becomes characters.
+# Points are (x, y) pixels in portrait/source.png, so these only fit this photo: clear
+# FEATURES if you swap it. Kinds:
+#   ("line", ink, width, points)  - a soft shaded stroke, e.g. the brows
+#   ("fill", ink, points)         - a textured filled shape, e.g. the beard
+#   ("clear", max_ink, points)    - caps the ink inside a shape, keeping skin and teeth clean
+#   ("stroke", glyph, points)     - drawn with structural characters (/ \ | - _ ( ) etc.);
+#                                   glyph None picks one from each segment's direction
+FEATURES = [
+    # keep cheeks, the side of the nose, and the teeth clean so the features read against them
+    ("clear", 0.08, [(139, 113), (153, 113), (151, 123), (141, 124), (136, 119)]),
+    ("clear", 0.08, [(170, 113), (181, 112), (181, 121), (175, 123), (169, 119)]),
+    ("clear", 0.1, [(157, 110), (167, 110), (169, 121), (156, 121)]),
+    ("clear", 0.0, [(153, 129), (171, 129), (168, 133), (156, 133)]),
+    # brows (hair, so shaded) and smiling eyes (narrow arcs)
+    ("line", 0.9, 2.2, [(139, 107), (145, 105), (152, 105), (156, 106)]),
+    ("line", 0.9, 2.2, [(163, 105), (169, 104), (175, 105), (178, 107)]),
+    ("stroke", None, [(143, 112), (146, 110), (152, 110), (155, 112)]),
+    ("stroke", None, [(164, 112), (167, 110), (172, 110), (175, 112)]),
+    # nose: the bridge running down to the tip, the nostril wing, and the underside
+    ("stroke", None, [(160, 109), (162, 114), (164, 118), (166, 121)]),
+    ("stroke", "(", [(156, 122), (156, 124)]),
+    ("stroke", "_", [(157, 124), (163, 124)]),
+    ("stroke", ")", [(165, 122), (165, 123)]),
+    # mustache: a slight band over the upper lip
+    ("fill", 0.85, [(149, 128), (154, 125), (160, 124), (167, 124), (173, 126), (175, 128),
+                    (170, 128), (162, 127), (155, 128)]),
+    # beard: along the jaw from ear to ear, thick around the chin, open around the smile
+    ("fill", 0.95, [(132, 125), (137, 128), (143, 130), (149, 132), (153, 135), (160, 136),
+                   (168, 135), (173, 131), (176, 128), (179, 124), (180, 133), (176, 142),
+                   (169, 149), (159, 153), (149, 151), (141, 145), (135, 137), (131, 128)]),
+    # lower lip under the smile
+    ("stroke", None, [(153, 133), (157, 134), (167, 134), (171, 132)]),
+]
+
+
+def paint_features(shape, crop, size):
+    """Rasterize the shaded FEATURES at high resolution and shrink them to the character grid."""
+    k = 8
+    h, w = shape
+    add = np.zeros((h * k, w * k), np.float32)
+    cap = np.ones((h * k, w * k), np.float32)
+    rng = np.random.default_rng(7)
+    for kind, value, *rest in FEATURES:
+        if kind == "stroke":
+            continue
+        layer = np.zeros_like(add)
+        if kind == "line":
+            width, pts = rest
+            pts = (np.array(pts, np.float32) * k).astype(np.int32)
+            cv2.polylines(layer, [pts], False, 1.0, max(1, int(width * k)), cv2.LINE_AA)
+            add = np.maximum(add, layer * value)
+        else:
+            pts = (np.array(rest[0], np.float32) * k).astype(np.int32)
+            cv2.fillPoly(layer, [pts], 1.0, cv2.LINE_AA)
+            if kind == "fill":
+                # Hair texture: blotchy noise so the fill prints as varied characters.
+                noise = cv2.resize(rng.random((h, w)).astype(np.float32), (w * k, h * k))
+                add = np.maximum(add, layer * value * (0.65 + 0.35 * noise))
+            else:
+                cap = np.where(layer > 0.5, np.minimum(cap, value), cap)
+    rows, cols = crop
+    sy, sx = slice(rows.start * k, rows.stop * k), slice(cols.start * k, cols.stop * k)
+    shrink = lambda a: cv2.resize(np.ascontiguousarray(a[sy, sx]), size, interpolation=cv2.INTER_AREA)
+    return shrink(add), shrink(cap)
+
+
+def stroke_glyphs(shape, crop, size):
+    r"""Map each "stroke" feature onto character cells, choosing / \ | - by direction."""
+    h, w = shape
+    rows, cols = crop
+    x0, y0 = cols.start, rows.start
+    sx = size[0] / (min(cols.stop, w) - x0)
+    sy = size[1] / (min(rows.stop, h) - y0)
+    cells = {}
+    for kind, glyph, *rest in FEATURES:
+        if kind != "stroke":
+            continue
+        pts = [((x - x0) * sx, (y - y0) * sy) for x, y in rest[0]]
+        for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+            # Direction as it looks on screen (cells are taller than they are wide).
+            angle = np.degrees(np.arctan2((by - ay) * LINE_H, (bx - ax) * CHAR_W))
+            angle = (angle + 90) % 180 - 90
+            ch = glyph or ("-" if abs(angle) < 25 else "|" if abs(angle) > 65 else "\\" if angle > 0 else "/")
+            steps = max(1, int(np.hypot(bx - ax, by - ay) * 3))
+            for t in np.linspace(0, 1, steps + 1):
+                cells[(int(ay + (by - ay) * t), int(ax + (bx - ax) * t))] = ch
+    return cells
+
+
 def face_weight(shape):
     """1.0 inside FACE_BOX, fading to 0 just outside it, so the two treatments blend smoothly."""
     weight = np.zeros(shape, np.float32)
@@ -61,7 +151,8 @@ def face_weight(shape):
 def to_rows(img):
     la = np.array(img.convert("LA"))
     gray8, mask8 = la[..., 0], la[..., 1]
-    face = face_weight(gray8.shape)
+    full_shape = gray8.shape
+    face = face_weight(full_shape)
 
     # Sharpen the face so eyes, brows and the smile line stand out from the skin.
     g = gray8.astype(np.float32)
@@ -107,8 +198,16 @@ def to_rows(img):
     ink = np.where(e > EDGE_CUTOFF, np.maximum(ink, EDGE), ink)
     ink = np.maximum(ink, lines * FACE_LINE)
 
+    # Hand-drawn features last: clean up skin and teeth, then lay in nose, mustache and beard.
+    add, cap = paint_features(full_shape, crop, size)
+    ink = np.maximum(np.minimum(ink, cap), add)
+
     idx = np.where(subject, np.round(ink * (len(RAMP) - 1)).astype(int), 0)
-    return ["".join(RAMP[i] for i in line).rstrip() for line in idx]
+    grid = [[RAMP[i] for i in line] for line in idx]
+    for (r, c), ch in stroke_glyphs(full_shape, crop, size).items():
+        if 0 <= r < rows and 0 <= c < COLS:
+            grid[r][c] = ch
+    return ["".join(line).rstrip() for line in grid]
 
 
 def main():
