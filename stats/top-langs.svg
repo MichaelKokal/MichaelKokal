@@ -10,31 +10,31 @@
   <rect x="0.5" y="0.5" rx="4.5" width="399" height="199" fill="#151515" stroke="#e4e2e2"/>
   <g class="l" style="animation-delay:0.70s"><text x="25" y="35" class="title">Most Used Languages</text></g>
   <clipPath id="round"><rect x="0" y="0" width="350" height="8" rx="5"/></clipPath>
-  <g transform="translate(25, 55)" clip-path="url(#round)"><g class="grow" style="animation-delay:0.85s"><rect x="0" y="0" width="141.1157550971492" height="8" fill="#3178c6"/><rect x="141.1157550971492" y="0" width="62.86805461926805" height="8" fill="#e34c26"/><rect x="203.98380971641723" y="0" width="44.640690306053656" height="8" fill="#663399"/><rect x="248.6245000224709" y="0" width="38.49040492562132" height="8" fill="#00ADD8"/><rect x="287.1149049480922" y="0" width="35.3451343010801" height="8" fill="#f1e05a"/><rect x="322.4600392491723" y="0" width="27.539960750827678" height="8" fill="#f34b7d"/></g></g>
+  <g transform="translate(25, 55)" clip-path="url(#round)"><g class="grow" style="animation-delay:0.85s"><rect x="0" y="0" width="140.91336615612454" height="8" fill="#3178c6"/><rect x="140.91336615612454" y="0" width="62.777888932311875" height="8" fill="#e34c26"/><rect x="203.6912550884364" y="0" width="44.576666398649195" height="8" fill="#663399"/><rect x="248.2679214870856" y="0" width="38.43520178911014" height="8" fill="#00ADD8"/><rect x="286.70312327619575" y="0" width="35.29444212785929" height="8" fill="#f1e05a"/><rect x="321.997565404055" y="0" width="28.002434595944955" height="8" fill="#3572A5"/></g></g>
   <g transform="translate(25, 80)">
     <g class="l" style="animation-delay:1.10s"><g transform="translate(0, 0)">
       <circle cx="5" cy="6" r="5" fill="#3178c6"/>
-      <text x="15" y="10" class="lang">TypeScript 40.32%</text>
+      <text x="15" y="10" class="lang">TypeScript 40.26%</text>
     </g></g>
     <g class="l" style="animation-delay:1.20s"><g transform="translate(175, 0)">
       <circle cx="5" cy="6" r="5" fill="#e34c26"/>
-      <text x="15" y="10" class="lang">HTML 17.96%</text>
+      <text x="15" y="10" class="lang">HTML 17.94%</text>
     </g></g>
     <g class="l" style="animation-delay:1.30s"><g transform="translate(0, 25)">
       <circle cx="5" cy="6" r="5" fill="#663399"/>
-      <text x="15" y="10" class="lang">CSS 12.75%</text>
+      <text x="15" y="10" class="lang">CSS 12.74%</text>
     </g></g>
     <g class="l" style="animation-delay:1.40s"><g transform="translate(175, 25)">
       <circle cx="5" cy="6" r="5" fill="#00ADD8"/>
-      <text x="15" y="10" class="lang">Go 11.00%</text>
+      <text x="15" y="10" class="lang">Go 10.98%</text>
     </g></g>
     <g class="l" style="animation-delay:1.50s"><g transform="translate(0, 50)">
       <circle cx="5" cy="6" r="5" fill="#f1e05a"/>
-      <text x="15" y="10" class="lang">JavaScript 10.10%</text>
+      <text x="15" y="10" class="lang">JavaScript 10.08%</text>
     </g></g>
     <g class="l" style="animation-delay:1.60s"><g transform="translate(175, 50)">
-      <circle cx="5" cy="6" r="5" fill="#f34b7d"/>
-      <text x="15" y="10" class="lang">C++ 7.87%</text>
+      <circle cx="5" cy="6" r="5" fill="#3572A5"/>
+      <text x="15" y="10" class="lang">Python 8.00%</text>
     </g></g>
   </g>
 </svg>

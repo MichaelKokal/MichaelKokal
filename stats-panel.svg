@@ -13,10 +13,10 @@ text { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'L
 <text x="14" y="17" font-size="10" fill="#6e7681" text-anchor="start">stats.json</text><text x="436" y="17" font-size="10" fill="#6e7681" text-anchor="end">last 12 months</text><text x="14" y="358" font-size="10" fill="#6e7681" text-anchor="start">updated 2026-11-05</text>
 <g class="t" style="animation-delay:0.25s"><rect x="16.0" y="30" width="204.0" height="50" rx="6" fill="#161b22"/><text x="30.0" y="47" font-size="10" fill="#8b949e">current streak</text><text x="30.0" y="70" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#39d353">6</tspan><tspan font-size="11" fill="#8b949e"> days</tspan></text></g>
 <g class="t" style="animation-delay:0.35s"><rect x="230.0" y="30" width="204.0" height="50" rx="6" fill="#161b22"/><text x="244.0" y="47" font-size="10" fill="#8b949e">longest streak</text><text x="244.0" y="70" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">6</tspan><tspan font-size="11" fill="#8b949e"> days</tspan></text></g>
-<g class="t" style="animation-delay:0.45s"><rect x="16.0" y="88" width="204.0" height="50" rx="6" fill="#161b22"/><text x="30.0" y="105" font-size="10" fill="#8b949e">contributions</text><text x="30.0" y="128" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">165</tspan><tspan font-size="11" fill="#8b949e"> last year</tspan></text></g>
+<g class="t" style="animation-delay:0.45s"><rect x="16.0" y="88" width="204.0" height="50" rx="6" fill="#161b22"/><text x="30.0" y="105" font-size="10" fill="#8b949e">contributions</text><text x="30.0" y="128" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">166</tspan><tspan font-size="11" fill="#8b949e"> last year</tspan></text></g>
 <g class="t" style="animation-delay:0.55s"><rect x="230.0" y="88" width="204.0" height="50" rx="6" fill="#161b22"/><text x="244.0" y="105" font-size="10" fill="#8b949e">active days</text><text x="244.0" y="128" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">15</tspan><tspan font-size="11" fill="#8b949e"> of 365</tspan></text></g>
 <g class="t" style="animation-delay:0.65s"><rect x="16.0" y="146" width="204.0" height="50" rx="6" fill="#161b22"/><text x="30.0" y="163" font-size="10" fill="#8b949e">best day</text><text x="30.0" y="186" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">23</tspan><tspan font-size="11" fill="#8b949e"> Nov 1</tspan></text></g>
-<g class="t" style="animation-delay:0.75s"><rect x="230.0" y="146" width="204.0" height="50" rx="6" fill="#161b22"/><text x="244.0" y="163" font-size="10" fill="#8b949e">per active day</text><text x="244.0" y="186" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">11.0</tspan><tspan font-size="11" fill="#8b949e"> avg</tspan></text></g>
+<g class="t" style="animation-delay:0.75s"><rect x="230.0" y="146" width="204.0" height="50" rx="6" fill="#161b22"/><text x="244.0" y="163" font-size="10" fill="#8b949e">per active day</text><text x="244.0" y="186" xml:space="preserve"><tspan font-size="22" font-weight="bold" fill="#f0f6fc">11.1</tspan><tspan font-size="11" fill="#8b949e"> avg</tspan></text></g>
 <text x="16" y="216" font-size="10" fill="#8b949e">contributions per month</text>
 <rect class="b" style="animation-delay:0.90s" x="22.1" y="326.0" width="19.9" height="2.0" rx="2" fill="#21262d"><title>0 contributions in November 2025</title></rect>
 <text x="32.1" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Nov</text>
@@ -24,11 +24,11 @@ text { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'L
 <text x="64.2" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Dec</text>
 <rect class="b" style="animation-delay:1.02s" x="86.4" y="326.0" width="19.9" height="2.0" rx="2" fill="#26a641"><title>1 contributions in January 2026</title></rect>
 <text x="96.4" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Jan</text>
-<rect class="b" style="animation-delay:1.08s" x="118.6" y="299.2" width="19.9" height="28.8" rx="2" fill="#26a641"><title>23 contributions in February 2026</title></rect>
+<rect class="b" style="animation-delay:1.08s" x="118.6" y="299.6" width="19.9" height="28.4" rx="2" fill="#26a641"><title>23 contributions in February 2026</title></rect>
 <text x="128.5" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Feb</text>
 <rect class="b" style="animation-delay:1.14s" x="150.7" y="326.0" width="19.9" height="2.0" rx="2" fill="#21262d"><title>0 contributions in March 2026</title></rect>
 <text x="160.7" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Mar</text>
-<rect class="b" style="animation-delay:1.20s" x="182.9" y="323.0" width="19.9" height="5.0" rx="2" fill="#26a641"><title>4 contributions in April 2026</title></rect>
+<rect class="b" style="animation-delay:1.20s" x="182.9" y="323.1" width="19.9" height="4.9" rx="2" fill="#26a641"><title>4 contributions in April 2026</title></rect>
 <text x="192.8" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Apr</text>
 <rect class="b" style="animation-delay:1.26s" x="215.0" y="326.0" width="19.9" height="2.0" rx="2" fill="#21262d"><title>0 contributions in May 2026</title></rect>
 <text x="225.0" y="342" font-size="9" fill="#8b949e" text-anchor="middle">May</text>
@@ -40,9 +40,9 @@ text { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'L
 <text x="321.5" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Aug</text>
 <rect class="b" style="animation-delay:1.50s" x="343.6" y="326.0" width="19.9" height="2.0" rx="2" fill="#21262d"><title>0 contributions in September 2026</title></rect>
 <text x="353.6" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Sep</text>
-<rect class="b" style="animation-delay:1.56s" x="375.8" y="246.8" width="19.9" height="81.2" rx="2" fill="#26a641"><title>65 contributions in October 2026</title></rect>
+<rect class="b" style="animation-delay:1.56s" x="375.8" y="247.9" width="19.9" height="80.1" rx="2" fill="#26a641"><title>65 contributions in October 2026</title></rect>
 <text x="385.8" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Oct</text>
-<rect class="b" style="animation-delay:1.62s" x="408.0" y="238.0" width="19.9" height="90.0" rx="2" fill="#39d353"><title>72 contributions in November 2026</title></rect>
+<rect class="b" style="animation-delay:1.62s" x="408.0" y="238.0" width="19.9" height="90.0" rx="2" fill="#39d353"><title>73 contributions in November 2026</title></rect>
 <text x="417.9" y="342" font-size="9" fill="#8b949e" text-anchor="middle">Nov</text>
-<text class="t" style="animation-delay:2.02s" x="417.9" y="232.0" font-size="10" font-weight="bold" fill="#39d353" text-anchor="middle">72</text>
+<text class="t" style="animation-delay:2.02s" x="417.9" y="232.0" font-size="10" font-weight="bold" fill="#39d353" text-anchor="middle">73</text>
 </svg>
